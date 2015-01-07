@@ -12,7 +12,6 @@ use GuzzleHttp\Event\SubscriberInterface;
 use GuzzleHttp\Event\RequestEvents;
 use GuzzleHttp\Event\BeforeEvent;
 use GuzzleHttp\Event\ErrorEvent;
-use GuzzleHttp\Common\EmitterInterface;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Message\RequestInterface;
 
