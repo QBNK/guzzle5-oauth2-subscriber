@@ -1,12 +1,12 @@
-<?php namespace kamermans\GuzzleOAuth2;
+<?php namespace Nmrkt\GuzzleOAuth2;
 
-use kamermans\GuzzleOAuth2\GrantType\GrantTypeInterface;
-use kamermans\GuzzleOAuth2\Signer\AccessToken\SignerInterface as AccessTokenSigner;
-use kamermans\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface as ClientCredentialsSigner;
-use kamermans\GuzzleOAuth2\Signer\AccessToken\BasicAuth as AccessTokenBasicAuth;
-use kamermans\GuzzleOAuth2\Signer\ClientCredentials\BasicAuth as ClientCredentialsBasicAuth;
-use kamermans\GuzzleOAuth2\Exception\AccessTokenRequestException;
-use kamermans\GuzzleOAuth2\Exception\RefreshTokenRequestException;
+use Nmrkt\GuzzleOAuth2\GrantType\GrantTypeInterface;
+use Nmrkt\GuzzleOAuth2\Signer\AccessToken\SignerInterface as AccessTokenSigner;
+use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface as ClientCredentialsSigner;
+use Nmrkt\GuzzleOAuth2\Signer\AccessToken\BasicAuth as AccessTokenBasicAuth;
+use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\BasicAuth as ClientCredentialsBasicAuth;
+use Nmrkt\GuzzleOAuth2\Exception\AccessTokenRequestException;
+use Nmrkt\GuzzleOAuth2\Exception\RefreshTokenRequestException;
 
 use GuzzleHttp\Event\SubscriberInterface;
 use GuzzleHttp\Event\RequestEvents;
@@ -194,8 +194,8 @@ class OAuth2Subscriber implements SubscriberInterface
     /**
      * Acquire a new access token from the server.
      *
-     * @throws kamermans\GuzzleOAuth2\Exception\RefreshTokenRequestException
-     * @throws kamermans\GuzzleOAuth2\Exception\AccessTokenRequestException
+     * @throws Nmrkt\GuzzleOAuth2\Exception\RefreshTokenRequestException
+     * @throws Nmrkt\GuzzleOAuth2\Exception\AccessTokenRequestException
      */
     protected function acquireAccessToken()
     {

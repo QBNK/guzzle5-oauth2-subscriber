@@ -1,19 +1,19 @@
-<?php namespace kamermans\GuzzleOAuth2\GrantType;
+<?php namespace Nmrkt\GuzzleOAuth2\GrantType;
 
-use kamermans\GuzzleOAuth2\Utils;
-use kamermans\GuzzleOAuth2\TokenData;
-use kamermans\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
-use kamermans\GuzzleOAuth2\Exception\ReauthorizationException;
+use Nmrkt\GuzzleOAuth2\Utils;
+use Nmrkt\GuzzleOAuth2\TokenData;
+use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
+use Nmrkt\GuzzleOAuth2\Exception\ReauthorizationException;
 
 use GuzzleHttp\Collection;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 
 /**
- * Resource owner password credentials grant type.
- * @link http://tools.ietf.org/html/rfc6749#section-4.3
+ * Authorization code grant type.
+ * @link http://tools.ietf.org/html/rfc6749#section-4.1
  */
-class PasswordCredentials implements GrantTypeInterface
+class AuthorizationCode implements GrantTypeInterface
 {
     /** @var ClientInterface The token endpoint client */
     protected $client;
@@ -29,11 +29,11 @@ class PasswordCredentials implements GrantTypeInterface
                 [
                     'client_secret' => '',
                     'scope' => '',
-                ],
+                    'redirect_uri' => '',
+                ], 
                 [
-                    'client_id',
-                    'username',
-                    'password',
+                    'client_id', 
+                    'code',
                 ]
             );
         }
@@ -49,13 +49,16 @@ class PasswordCredentials implements GrantTypeInterface
         }
 
         $postBody = [
-            'grant_type' => 'password',
-            'username' => $this->config['username'],
-            'password' => $this->config['password'],
+            'grant_type' => 'authorization_code',
+            'code' => $this->config['code'],
         ];
 
         if ($this->config['scope']) {
             $postBody['scope'] = $this->config['scope'];
+        }
+
+        if ($this->config['redirect_uri']) {
+            $postBody['redirect_uri'] = $this->config['redirect_uri'];
         }
 
         $request = $this->client->createRequest('POST', null);
@@ -66,7 +69,7 @@ class PasswordCredentials implements GrantTypeInterface
             $this->config['client_secret']
         );
         $response = $this->client->send($request);
-        
+
         return new TokenData($response->json());
     }
 }

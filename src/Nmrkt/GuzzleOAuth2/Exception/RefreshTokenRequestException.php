@@ -1,3 +1,3 @@
-<?php namespace kamermans\GuzzleOAuth2\Exception;
+<?php namespace Nmrkt\GuzzleOAuth2\Exception;
 
 class RefreshTokenRequestException extends ReauthorizationRequestException {}

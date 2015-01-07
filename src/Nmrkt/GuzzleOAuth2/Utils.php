@@ -1,4 +1,4 @@
-<?php namespace kamermans\GuzzleOAuth2;
+<?php namespace Nmrkt\GuzzleOAuth2;
 
 use GuzzleHttp\Post\PostBody;
 

@@ -1,3 +1,3 @@
-<?php namespace kamermans\GuzzleOAuth2\Exception;
+<?php namespace Nmrkt\GuzzleOAuth2\Exception;
 
 class OAuth2Exception extends \RuntimeException {}

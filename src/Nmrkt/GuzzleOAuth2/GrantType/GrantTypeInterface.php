@@ -1,7 +1,7 @@
-<?php namespace kamermans\GuzzleOAuth2\GrantType;
+<?php namespace Nmrkt\GuzzleOAuth2\GrantType;
 
-use kamermans\GuzzleOAuth2\TokenData;
-use kamermans\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
+use Nmrkt\GuzzleOAuth2\TokenData;
+use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
 
 interface GrantTypeInterface
 {
