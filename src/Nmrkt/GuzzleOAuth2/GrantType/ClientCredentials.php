@@ -7,7 +7,7 @@ use Nmrkt\GuzzleOAuth2\Exception\ReauthorizationException;
 
 use GuzzleHttp\Collection;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttpException\RequestException;
+use GuzzleHttp\Exception\RequestException;
 
 /**
  * Client credentials grant type.
