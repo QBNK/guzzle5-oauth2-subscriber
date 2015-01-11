@@ -1,7 +1,11 @@
 guzzle-oauth2-subscriber
 ====================
 
-Provides an OAuth2 subscriber for [Guzzle](http://guzzlephp.org/) 4.x.
+## Forked from kamermans/guzzle4-oauth2-subscriber and changed for Guzzle 5.x
+
+*__Warning__: not fully tested. This package works for what I needed it for, but I never wrote tests to fully cover the package specs. All that was changed was mostly namespaces that were different from 4.x -> 5.x*
+
+Provides an OAuth2 subscriber for [Guzzle](http://guzzlephp.org/) 5.x.
 
 # Attribution #
 -----------
@@ -77,4 +81,3 @@ $response = $client->get('http://somehost/some_secure_url');
 
 echo "Status: ".$response->getStatusCode()."\n";
 ```
-
