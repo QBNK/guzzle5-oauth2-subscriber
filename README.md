@@ -1,9 +1,10 @@
 guzzle-oauth2-subscriber
 ====================
 
-## Forked from kamermans/guzzle4-oauth2-subscriber and changed for Guzzle 5.x
+## Forked from NMRKT/guzzle5-oauth2-subscriber and fixed a few bugs
 
-*__Warning__: not fully tested. This package works for what I needed it for, but I never wrote tests to fully cover the package specs. All that was changed was mostly namespaces that were different from 4.x -> 5.x*
+The NMRKT implementation seems abandoned as they have not responded to any of the merge requests. We then decided to publish our fixes.
+
 
 Provides an OAuth2 subscriber for [Guzzle](http://guzzlephp.org/) 5.x.
 
