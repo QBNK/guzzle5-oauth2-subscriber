@@ -13,8 +13,8 @@
     },
     "autoload": {
         "psr-4": {
-            "QBNK\\GuzzleOAuth2": "src",
-            "QBNK\\Tests": "tests"
+            "QBNK\\GuzzleOAuth2\\": "src",
+            "QBNK\\Tests\\": "tests"
         }
     },
     "authors": [
