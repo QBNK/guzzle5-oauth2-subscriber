@@ -1,4 +1,4 @@
-<?php namespace Nmrkt\GuzzleOAuth2\GrantType;
+<?php namespace QBNK\GuzzleOAuth2\GrantType;
 
 use Nmrkt\GuzzleOAuth2\Utils;
 use Nmrkt\GuzzleOAuth2\TokenData;
@@ -10,10 +10,10 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 
 /**
- * Resource owner password credentials grant type.
- * @link http://tools.ietf.org/html/rfc6749#section-4.3
+ * Refresh token grant type.
+ * @link http://tools.ietf.org/html/rfc6749#section-6
  */
-class PasswordCredentials implements GrantTypeInterface
+class RefreshToken implements GrantTypeInterface
 {
     /** @var ClientInterface The token endpoint client */
     protected $client;
@@ -25,15 +25,14 @@ class PasswordCredentials implements GrantTypeInterface
     {
         $this->client = $client;
         if ($config) {
-            $this->config = Collection::fromConfig($config, 
+            $this->config = Collection::fromConfig($config,
                 [
                     'client_secret' => '',
+                    'refresh_token' => '',
                     'scope' => '',
                 ],
                 [
                     'client_id',
-                    'username',
-                    'password',
                 ]
             );
         }
@@ -42,22 +41,23 @@ class PasswordCredentials implements GrantTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function getTokenData(SignerInterface $clientCredentialsSigner)
+    public function getTokenData(SignerInterface $clientCredentialsSigner, $refreshToken = null)
     {
         if (!$this->client || !$this->config) {
             throw new ReauthorizationException('No OAuth reauthorization method was set');
         }
 
         $postBody = [
-            'grant_type' => 'password',
-            'username' => $this->config['username'],
-            'password' => $this->config['password'],
+            'grant_type' => 'refresh_token',
+            // If no refresh token was provided to the method, use the one
+            // provided to the constructor.
+            'refresh_token' => $refreshToken ?: $this->config['refresh_token'],
         ];
-
+        
         if ($this->config['scope']) {
             $postBody['scope'] = $this->config['scope'];
         }
-
+        
         $request = $this->client->createRequest('POST', null);
         $request->setBody(Utils::arrayToPostBody(new Collection($postBody)));
         $clientCredentialsSigner->sign(
@@ -66,7 +66,7 @@ class PasswordCredentials implements GrantTypeInterface
             $this->config['client_secret']
         );
         $response = $this->client->send($request);
-        
+
         return new TokenData($response->json());
     }
 }

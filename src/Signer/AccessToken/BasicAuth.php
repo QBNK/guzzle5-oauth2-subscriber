@@ -1,4 +1,4 @@
-<?php namespace Nmrkt\GuzzleOAuth2\Signer\AccessToken;
+<?php namespace QBNK\GuzzleOAuth2\Signer\AccessToken;
 
 use GuzzleHttp\Message\RequestInterface;
 

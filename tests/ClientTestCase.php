@@ -6,7 +6,7 @@
  * Time: 4:17 PM
  */
 
-namespace Nmrkt\Tests;
+namespace QBNK\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Subscriber\Mock;

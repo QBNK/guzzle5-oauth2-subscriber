@@ -1,6 +1,6 @@
 <?php
 
-namespace Nmrkt\GuzzleOAuth2\Signer\ClientCredentials;
+namespace QBNK\GuzzleOAuth2\Signer\ClientCredentials;
 
 use GuzzleHttp\Message\RequestInterface;
 

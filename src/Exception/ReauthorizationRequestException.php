@@ -1,4 +1,4 @@
-<?php namespace Nmrkt\GuzzleOAuth2\Exception;
+<?php namespace QBNK\GuzzleOAuth2\Exception;
 
 use GuzzleHttp\Exception\TransferException;
 

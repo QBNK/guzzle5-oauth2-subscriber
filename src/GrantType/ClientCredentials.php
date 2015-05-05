@@ -1,4 +1,4 @@
-<?php namespace Nmrkt\GuzzleOAuth2\GrantType;
+<?php namespace QBNK\GuzzleOAuth2\GrantType;
 
 use Nmrkt\GuzzleOAuth2\Utils;
 use Nmrkt\GuzzleOAuth2\TokenData;
@@ -10,10 +10,10 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 
 /**
- * Refresh token grant type.
- * @link http://tools.ietf.org/html/rfc6749#section-6
+ * Client credentials grant type.
+ * @link http://tools.ietf.org/html/rfc6749#section-4.4
  */
-class RefreshToken implements GrantTypeInterface
+class ClientCredentials implements GrantTypeInterface
 {
     /** @var ClientInterface The token endpoint client */
     protected $client;
@@ -27,10 +27,10 @@ class RefreshToken implements GrantTypeInterface
         if ($config) {
             $this->config = Collection::fromConfig($config,
                 [
+                    'grant_type' => 'client_credentials',
                     'client_secret' => '',
-                    'refresh_token' => '',
                     'scope' => '',
-                ],
+                ], 
                 [
                     'client_id',
                 ]
@@ -41,25 +41,14 @@ class RefreshToken implements GrantTypeInterface
     /**
      * {@inheritdoc}
      */
-    public function getTokenData(SignerInterface $clientCredentialsSigner, $refreshToken = null)
+    public function getTokenData(SignerInterface $clientCredentialsSigner)
     {
         if (!$this->client || !$this->config) {
             throw new ReauthorizationException('No OAuth reauthorization method was set');
         }
-
-        $postBody = [
-            'grant_type' => 'refresh_token',
-            // If no refresh token was provided to the method, use the one
-            // provided to the constructor.
-            'refresh_token' => $refreshToken ?: $this->config['refresh_token'],
-        ];
-        
-        if ($this->config['scope']) {
-            $postBody['scope'] = $this->config['scope'];
-        }
         
         $request = $this->client->createRequest('POST', null);
-        $request->setBody(Utils::arrayToPostBody(new Collection($postBody)));
+        $request->setBody(Utils::arrayToPostBody($this->config));
         $clientCredentialsSigner->sign(
             $request, 
             $this->config['client_id'], 

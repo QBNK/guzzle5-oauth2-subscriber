@@ -1,4 +1,4 @@
-<?php namespace Nmrkt\GuzzleOAuth2\GrantType;
+<?php namespace QBNK\GuzzleOAuth2\GrantType;
 
 use Nmrkt\GuzzleOAuth2\Utils;
 use Nmrkt\GuzzleOAuth2\TokenData;

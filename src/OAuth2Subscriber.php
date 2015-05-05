@@ -1,4 +1,4 @@
-<?php namespace Nmrkt\GuzzleOAuth2;
+<?php namespace QBNK\GuzzleOAuth2;
 
 use Nmrkt\GuzzleOAuth2\GrantType\GrantTypeInterface;
 use Nmrkt\GuzzleOAuth2\Signer\AccessToken\SignerInterface as AccessTokenSigner;

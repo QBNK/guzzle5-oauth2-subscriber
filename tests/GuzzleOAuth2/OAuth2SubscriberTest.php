@@ -6,7 +6,7 @@
  * Time: 12:09 PM
  */
 
-namespace Nmrkt\Tests\GuzzleOAuth2;
+namespace QBNK\Tests\GuzzleOAuth2;
 
 use Nmrkt\Tests\ClientTestCase;
 
