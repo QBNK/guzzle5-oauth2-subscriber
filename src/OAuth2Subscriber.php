@@ -1,12 +1,12 @@
 <?php namespace QBNK\GuzzleOAuth2;
 
-use Nmrkt\GuzzleOAuth2\GrantType\GrantTypeInterface;
-use Nmrkt\GuzzleOAuth2\Signer\AccessToken\SignerInterface as AccessTokenSigner;
-use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface as ClientCredentialsSigner;
-use Nmrkt\GuzzleOAuth2\Signer\AccessToken\BasicAuth as AccessTokenBasicAuth;
-use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\BasicAuth as ClientCredentialsBasicAuth;
-use Nmrkt\GuzzleOAuth2\Exception\AccessTokenRequestException;
-use Nmrkt\GuzzleOAuth2\Exception\RefreshTokenRequestException;
+use QBNK\GuzzleOAuth2\GrantType\GrantTypeInterface;
+use QBNK\GuzzleOAuth2\Signer\AccessToken\SignerInterface as AccessTokenSigner;
+use QBNK\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface as ClientCredentialsSigner;
+use QBNK\GuzzleOAuth2\Signer\AccessToken\BasicAuth as AccessTokenBasicAuth;
+use QBNK\GuzzleOAuth2\Signer\ClientCredentials\BasicAuth as ClientCredentialsBasicAuth;
+use QBNK\GuzzleOAuth2\Exception\AccessTokenRequestException;
+use QBNK\GuzzleOAuth2\Exception\RefreshTokenRequestException;
 
 use GuzzleHttp\Event\SubscriberInterface;
 use GuzzleHttp\Event\RequestEvents;
@@ -193,8 +193,8 @@ class OAuth2Subscriber implements SubscriberInterface
     /**
      * Acquire a new access token from the server.
      *
-     * @throws Nmrkt\GuzzleOAuth2\Exception\RefreshTokenRequestException
-     * @throws Nmrkt\GuzzleOAuth2\Exception\AccessTokenRequestException
+     * @throws QBNK\GuzzleOAuth2\Exception\RefreshTokenRequestException
+     * @throws QBNK\GuzzleOAuth2\Exception\AccessTokenRequestException
      */
     protected function acquireAccessToken()
     {

@@ -8,9 +8,9 @@
 
 namespace QBNK\Tests\GuzzleOAuth2;
 
-use Nmrkt\Tests\ClientTestCase;
+use QBNK\Tests\ClientTestCase;
 
-use Nmrkt\GuzzleOAuth2\OAuth2Subscriber as Plugin;
+use QBNK\GuzzleOAuth2\OAuth2Subscriber as Plugin;
 use GuzzleHttp\Subscriber\Mock;
 use GuzzleHttp\Message\Response;
 use GuzzleHttp\Subscriber\History;

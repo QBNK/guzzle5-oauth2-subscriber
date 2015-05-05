@@ -1,9 +1,9 @@
 <?php namespace QBNK\GuzzleOAuth2\GrantType;
 
-use Nmrkt\GuzzleOAuth2\Utils;
-use Nmrkt\GuzzleOAuth2\TokenData;
-use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
-use Nmrkt\GuzzleOAuth2\Exception\ReauthorizationException;
+use QBNK\GuzzleOAuth2\Utils;
+use QBNK\GuzzleOAuth2\TokenData;
+use QBNK\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
+use QBNK\GuzzleOAuth2\Exception\ReauthorizationException;
 
 use GuzzleHttp\Collection;
 use GuzzleHttp\ClientInterface;

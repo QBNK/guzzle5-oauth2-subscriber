@@ -1,7 +1,7 @@
 <?php namespace QBNK\GuzzleOAuth2\GrantType;
 
-use Nmrkt\GuzzleOAuth2\TokenData;
-use Nmrkt\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
+use QBNK\GuzzleOAuth2\TokenData;
+use QBNK\GuzzleOAuth2\Signer\ClientCredentials\SignerInterface;
 
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use HWI\Bundle\OAuthBundle\Security\Http\ResourceOwnerMap;
